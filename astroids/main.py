@@ -58,6 +58,7 @@ def main():
         game_speed.tick(60) #gives us the frame rate
         dt = game_speed.tick(60)/1000 #will be used later
         updatable.update(dt)
+        player.shoot_cooldown_timer -= dt
         #player.update(dt)
         for asteroid in asteroids:
             if asteroid.collides_with(player):
