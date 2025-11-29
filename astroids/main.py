@@ -61,6 +61,11 @@ def main():
         player.shoot_cooldown_timer -= dt
         #player.update(dt)
         for asteroid in asteroids:
+            for shot in shots: 
+                if asteroid.collides_with(shot):
+                    log_event("asteroid_shot")
+                    asteroid.kill()
+                    shot.kill()
             if asteroid.collides_with(player):
                 log_event("player_hit")
                 run_game = False
